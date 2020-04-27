@@ -4,7 +4,7 @@
   "description": "Programa de conversaciones con deportistas de grande rendimiento de distintas diciplinas.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "git add -A && git commit -m \"Actualizando cambios\" && git push"
   },
   "keywords": [],
   "author": "",
