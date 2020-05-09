@@ -30,12 +30,19 @@
 	<link href="assets/css/theme-vendors.min.css" rel="stylesheet" />
 	<link href="assets/css/theme.min.css" rel="stylesheet" />
 	<link href="assets/css/themes/gym.css" rel="stylesheet" /><!-- Head Libs --><script async src="assets/vendors/modernizr.min.js"></script>
-	<style>
+  <link rel="stylesheet" href="./assets/css/intlTelInput.min.css">
+  <style>
 	@media (max-width: 991.98px) {  
        section:nth-child(1) {
             background-position: center right !important;
         }
 	}
+  
+  .iti__flag {background-image: url("./assets/img/flags.png");}
+
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .iti__flag {background-image: url("./assets/img/flags.png");}
+  }
 	</style>
 </head>
 <body data-mobile-header-scheme="gray" data-mobile-nav-align="center" data-mobile-nav-breakpoint="1199" data-mobile-nav-scheme="gray" data-mobile-nav-style="minimal" data-mobile-nav-trigger-alignment="right">
@@ -94,7 +101,7 @@
 <div class="col-md-6"><input aria-invalid="false" aria-required="true" name="email" placeholder="Email" required="" type="email" /></div>
 <!-- /.col-md-6 -->
 
-<div class="col-md-6"><input aria-invalid="false" aria-required="true" name="custom_origin" placeholder="Teléfono" required="" type="tel" /></div>
+<div class="col-md-6"><input id="phone_number" aria-invalid="false" aria-required="true" name="custom_origin" placeholder="Teléfono" required="" type="tel" /></div>
 <!-- /.col-md-6 -->
 
 <div class="col-md-12 mt-25"><!-- Token de lista --><!-- Obtenga el token en: https://app.getresponse.com/campaign_list.html --><input name="campaign_token" type="hidden" value="KTPKo" /> <!-- Página de agradecimiento (opcional) --> <input name="thankyou_url" type="hidden" value="http://coachjeremias.com/conversaciones-exito/gracias.html" /> <!-- Añadir suscriptor a la secuencia de seguimiento con un día específico (opcional) --> <input name="start_day" type="hidden" value="0" /> <!-- Forward form data to your page (optional) --> <input name="forward_data" type="hidden" value="post" /> <!-- Botón de suscriptor --> <input class="font-size-16 font-weight-bold ltr-sp-1 text-uppercase bg-gradient-primary-lr border-none" type="submit" value="Suscribirme" /></div>
@@ -459,4 +466,16 @@
 </main>
 </div>
 <!-- /#wrap --><script src="//maps.googleapis.com/maps/api/js?key={YOUR_API_KEY}"></script><script src="./assets/vendors/jquery.min.js"></script><script src="./assets/js/theme-vendors.js"></script><script src="./assets/js/theme.min.js"></script></body>
+<script src="./assets/js/intlTelInput.min.js"></script>
+<script>
+  var input = document.querySelector("#phone_number");
+  window.intlTelInput(input, {
+  initialCountry: 've',
+  nationalMode: false,
+  utilsScript: './assets/js/utils.js',
+  preferredCountries: ['ve', 'us'],
+  preventInvalidDialCodes: true
+  // separateDialCode: true
+});
+</script>
 </html>
